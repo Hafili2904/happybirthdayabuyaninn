@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff7f5">
+  <title>Untuk Anin — 5 November</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+    :root{--ink:#493b40;--muted:#88777d;--rose:#c77e91;--rose-dark:#a85e75;--paper:#fffaf8;--pink:#f8e6e8;--line:#efdadd}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(145deg,#fff9f6,#fbecef 58%,#fff8f5);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+    #preloader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:24px;background:linear-gradient(145deg,#fff9f6,#fbecef 58%,#fff8f5);transition:opacity .65s ease,visibility .65s ease}
+    #preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+    .loader-card{text-align:center;width:min(360px,100%);padding:34px 25px}
+    .loader-heart{font-family:Georgia,serif;font-size:3.7rem;line-height:1;color:#c77e91;animation:heartbeat 1.15s ease-in-out infinite}
+    .loader-kicker{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#a87585;margin-top:18px}
+    .loader-title{font-family:'Playfair Display',serif;font-size:2.4rem;color:#654a54;margin-top:8px}
+    .loader-subtitle{font-size:.84rem;color:#9a858d;margin-top:8px}
+    .loader-track{height:4px;background:#f0dadd;border-radius:99px;overflow:hidden;margin:26px auto 10px;width: min(230px,100%)}
+    #loader-progress{display:block;width:0;height:100%;background:linear-gradient(90deg,#d99aaa,#a85e75);border-radius:99px;transition:width .12s linear}
+    .loader-percent{font-size:.68rem;color:#b18d98;letter-spacing:.12em}
+    @keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}
+    .glow{position:fixed;width:340px;height:340px;border-radius:50%;filter:blur(70px);opacity:.35;pointer-events:none;z-index:-1;background:#f3cbd4;top:-130px;right:-100px}
+    .glow.two{width:280px;height:280px;top:auto;right:auto;bottom:-120px;left:-100px;background:#f6d9c9}
+    .wrap{width:min(760px, calc(100% - 36px));margin:auto}
+    .hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:70px 0 56px;position:relative}
+    .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose-dark);font-weight:700}
+    .tiny-heart{color:var(--rose);font-size:1.1rem;margin:20px 0}
+    h1,h2,.serif{font-family:'Playfair Display',serif;font-weight:500}
+    h1{font-size:clamp(2.7rem,9vw,5.2rem);line-height:1.06;margin:14px 0;color:#654a54}
+    h1 em{color:var(--rose-dark);font-weight:500}
+    .hero p{max-width:490px;margin:18px auto;color:var(--muted);line-height:1.9;font-size:1rem}
+    .date{display:inline-block;border:1px solid #e9cbd2;border-radius:99px;padding:9px 17px;color:#946879;font-size:.82rem;margin-top:14px;background:#ffffff80}
+    .btn{border:0;background:var(--rose-dark);color:white;border-radius:99px;padding:14px 23px;font:600 .9rem 'DM Sans';cursor:pointer;box-shadow:0 9px 22px #b46e8030;transition:.2s}
+    .btn:hover{transform:translateY(-2px);background:#944d65}
+    .scroll{display:block;margin-top:40px;color:#a88a93;font-size:.75rem;letter-spacing:.12em}
+    .section{padding:70px 0}
+    .paper{background:#fffdfbdb;border:1px solid #f0dfe1;border-radius:26px;padding:clamp(24px,6vw,48px);box-shadow:0 18px 55px #9d6b7410}
+    .section-tag{text-transform:uppercase;letter-spacing:.2em;color:var(--rose-dark);font-size:.7rem;font-weight:700}
+    h2{font-size:clamp(2rem,6vw,3rem);line-height:1.2;margin:13px 0 22px;color:#654a54}
+    .letter p{font-size:1rem;line-height:2;margin:0 0 17px;color:#6f5e64}
+    .letter .lead{font-family:'Playfair Display',serif;font-size:1.35rem;line-height:1.65;color:#795765}
+    .divider{display:flex;align-items:center;gap:14px;color:#c78b9b;margin:30px 0}
+    .divider:before,.divider:after{content:"";height:1px;background:var(--line);flex:1}
+    .wish-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:25px}
+    .wish{padding:20px;border:1px solid #f0dfe1;background:#fff9f8;border-radius:18px}
+    .wish .symbol{font-size:1.35rem}
+    .wish h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;margin:10px 0 6px;color:#795765}
+    .wish p{font-size:.86rem;line-height:1.7;color:var(--muted);margin:0}
+    .closing{text-align:center;padding:75px 0 90px}
+    .closing h2{margin-bottom:12px}
+    .closing p{color:var(--muted);line-height:1.9;max-width:480px;margin:0 auto 22px}
+    .signature{font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--rose-dark);margin-top:28px}
+    footer{text-align:center;color:#b49da4;font-size:.72rem;padding:0 18px 28px;letter-spacing:.04em}
+    .heart{position:fixed;bottom:-30px;z-index:5;pointer-events:none;animation:float 5s linear forwards;color:#d28a9d;opacity:.7}
+    @keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+    .hidden{display:none}
+    @media(max-width:520px){
+      .wish-grid{grid-template-columns:1fr}
+      .hero{padding:48px 0 42px;min-height:94svh}
+      .hero p{font-size:.94rem;line-height:1.8;padding:0 4px}
+      .section{padding:34px 0}
+      .paper{border-radius:21px;padding:23px 20px}
+      .letter p{font-size:.94rem;line-height:1.85}
+      .letter .lead{font-size:1.2rem}
+      .wish{padding:17px}
+      .closing{padding:55px 0 70px}
+      .btn{min-height:48px;padding:14px 22px}
+      .date{font-size:.76rem}
+    }
+    @media(max-width:360px){
+      .wrap{width:calc(100% - 26px)}
+      h1{font-size:2.55rem}
+      h2{font-size:1.85rem}
+      .paper{padding:20px 17px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div id="preloader" aria-label="Memuat halaman buat abuyyyy">
+    <div class="loader-card">
+      <div class="loader-heart">♡</div>
+      <div class="loader-kicker">A little something for you mwhihihiih</div>
+      <div class="loader-title">Untuk Abuyy</div>
+      <div class="loader-subtitle">Menyiapkan halaman kecil penuh doa...</div>
+      <div class="loader-track"><span id="loader-progress"></span></div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+    </div>
+  </div>
+  <div class="glow"></div><div class="glow two"></div>
+  <header class="hero wrap">
+    <div>
+      <div class="eyebrow">5 November 2026 · A little page for you</div>
+      <div class="tiny-heart">♡</div>
+      <h1>Selamat pagi,<br><em>Abuy.</em></h1>
+      <p>Ada satu hal yang mau aku kasih tau sebelum hari ini berjalan terlalu jauh. Hari ini bukan hari biasa nih hehehee, soalnya hari ini adalah hari lahir seseorang yang begitu berarti buat aku hihii.</p>
+      <div class="date">Kamis, 5 November 2026 · 18 tahun</div>
+      <div style="margin-top:30px"><button class="btn" onclick="document.querySelector('#surat').scrollIntoView({behavior:'smooth'})">Buka surat kecil ini ♡</button></div>
+      <span class="scroll">COBA BUY BUKA DULU SEBENTAR HEHEHE ↓</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="section wrap" id="surat">
+      <article class="paper letter">
+        <div class="section-tag">Untuk kamu, di hari istimewamu</div>
+        <h2>Happy birthday,<br>Abuy.</h2>
+        <p class="lead">Selamat bertambah usia, perempuan baik yang selalu punya tempat istimewa di hidup aku (kalo dikasih hehehe).</p>
+        <p>Aku berharap pagi ini kamu bangun dengan hati yang tenang, badan yang sehat, dan senyum yang tulus hhehehe. Semoga hari ini dipenuhi hal-hal baik, sekecil apa pun itu. Kamu pantas dapatkan kebahagiaan, bukan cuma hari ini, tapi juga di hari-hari setelahnya yaa aminnnn.</p>
+        <p>Di usia kamu yang ke-18 ini, mungkin akan ada banyak hal baru yang kamu temui nanti. Ada mimpi yang semakin dekat, ada rencana yang berubah, ada hari yang terasa mudah, dan mungkin ada juga hari yang melelahkan. Apa pun yang nanti kamu hadapi, aku berharap kamu selalu punya alasan untuk percaya pada diri sendiri.</p>
+        <div class="divider">♡</div>
+        <p>Aku juga mau minta maaf, ya. Untuk hari ini, aku belum bisa hadir langsung buat ngerayain hari ulang taun kamu. belum bisa ngungkapin semuanya secara langsung, dan belum bisa kasih banyak hal yang mau aku kasih sama kamu.</p>
+        <p>Kadang aku merasa nggak enak gara gara jarak bisa bikin banyak hal jadi ga bisa aku lakuin sama kau. Tapi aku lagi belajar biar tetep menunjukkan rasa sayang dengan cara-cara yang aku bisa, meskipun untuk sekarang kita harus lewatin hari-hari istimewa dari tempat yang berbeda (hehehe maaf norakks hehehe).</p>
+        <p>Aku harap kamu nggak ngukur berharganya hari ini dari seberapa banyak sesuatu yang kamu terima. Kehadiran kamu sendiri udah jadi hal yang patut kamu syukuri. Dan buat aku, bisa kenal kamu, nemenin sebagian perjalanan kamu, sama ikut doain masa depan kamu adalah hal yang berarti.</p>
+        <p>Terima kasih sudah hadir di hidup aku. Terima kasih sama cerita-cerita kecil, waktu yang kamu luangkan, perhatian, kesabaran, dan semua hal sederhana yang mungkin nggak selalu sempet aku ucapkan terima kasihnya.</p>
+        <p>Aku nggak bisa janjiin bahwa setiap hari ke depan akan selalu mudah. Tapi aku ingin terus belajar menjadi orang yang lebih baik, yang bisa dengerin kamu, menghargai kamu, dan bertumbuh sama kamu tanpa buat kamu kehilangan diri kamu sendiri.</p>
+        <p class="lead">Hari ini, semoga dunia memperlakukan kamu dengan lembut. Semoga hal-hal baik menemukan jalannya menuju kamu (hhihihhi AMINNNNNNNNNNN).</p>
+      </article>
+    </section>
+
+    <section class="section wrap">
+      <div class="paper">
+        <div class="section-tag">Doa-doa kecil dari aku</div>
+        <h2>Semoga di usia yang baru...</h2>
+        <div class="wish-grid">
+          <div class="wish"><div class="symbol">☀️</div><h3>Selalu diberi kesehatan</h3><p>Semoga tubuh kamu selalu kuat, hati kamu tenang, dan kamu punya cukup waktu untuk beristirahat.</p></div>
+          <div class="wish"><div class="symbol">🌷</div><h3>Dikelilingi kebaikan</h3><p>Semoga kamu bertemu orang-orang tulus dan berada di lingkungan yang menghargai diri kamu.</p></div>
+          <div class="wish"><div class="symbol">✨</div><h3>Dimudahkan setiap langkah</h3><p>Semoga urusan, pendidikan, cita-cita, dan semua hal yang sedang kamu perjuangkan diberi kelancaran.</p></div>
+          <div class="wish"><div class="symbol">🤍</div><h3>Selalu punya alasan bahagia</h3><p>Semoga kamu tidak lupa bahwa kamu berharga, bahkan pada hari-hari ketika semuanya terasa berat.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing wrap">
+      <div class="tiny-heart">♡ ♡ ♡</div>
+      <div class="section-tag">Satu hal sebelum kamu lanjut beraktivitas</div>
+      <h2>Jangan lupa bahagia, ya.</h2>
+      <p>Nikmati hari ini. Makan yang kamu suka, istirahat kalau lelah, dan jangan lupa menjaga diri. Aku berharap kamu bisa melihat dirimu sendiri dengan penuh rasa syukur, seperti banyaknya alasan yang membuat aku bersyukur karena kamu ada.</p>
+      <p>Selamat ulang tahun sekali lagi, Anin. Semoga tahun ini membawa kamu lebih dekat pada hal-hal baik yang selama ini kamu doakan.</p>
+      <div class="signature">Dengan sayang,<br>hafilii ♡</div>
+      <div style="margin-top:30px"><button class="btn" onclick="sprinkleHearts()">Kirim banyak hati ♡</button></div>
+    </section>
+  </main>
+  <footer>Dibuat dengan tulus, untuk satu hari yang istimewa hihihihi· 05.11.2026</footer>
+  <script>
+    // Intro loading screen: progress completes, then the birthday page appears.
+    (function(){
+      const screen = document.getElementById('preloader');
+      const bar = document.getElementById('loader-progress');
+      const percent = document.getElementById('loader-percent');
+      let value = 0;
+      const step = () => {
+        value = Math.min(100, value + Math.ceil(Math.random() * 8));
+        bar.style.width = value + '%';
+        percent.textContent = value + '%';
+        if (value < 100) {
+          setTimeout(step, 85);
+        } else {
+          setTimeout(() => screen.classList.add('done'), 350);
+        }
+      };
+      setTimeout(step, 180);
+    })();
+
+    function sprinkleHearts(){
+      const symbols=['♡','♥','✧','ღ'];
+      for(let i=0;i<24;i++){
+        const el=document.createElement('span');
+        el.className='heart';el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+        el.style.left=Math.random()*100+'vw';
+        el.style.fontSize=(14+Math.random()*20)+'px';
+        el.style.animationDuration=(3.5+Math.random()*3)+'s';
+        document.body.appendChild(el);
+        setTimeout(()=>el.remove(),7000);
+      }
+    }
+  </script>
+</body>
+</html>
